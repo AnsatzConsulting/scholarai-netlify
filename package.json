@@ -6,12 +6,12 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "db:generate": "prisma generate --schema=./db/schema.prisma",
-    "db:migrate": "prisma migrate dev --schema=./db/schema.prisma --skip-seed",
-    "db:reset": "prisma migrate reset --schema=./db/schema.prisma --skip-seed",
-    "db:push": "prisma db push --schema=./db/schema.prisma --skip-seed",
+    "db:generate": "npx prisma generate --schema=./db/schema.prisma",
+    "db:migrate": "npx prisma migrate dev --schema=./db/schema.prisma --skip-seed",
+    "db:reset": "npx prisma migrate reset --schema=./db/schema.prisma --skip-seed",
+    "db:push": "npx prisma db push --schema=./db/schema.prisma",
     "db:seed": "npx prisma db seed",
-    "db:studio": "prisma studio --schema=./db/schema.prisma",
+    "db:studio": "npx prisma studio --schema=./db/schema.prisma",
     "now-build": "yarn generate --schema=./db/schema.prisma && next build"
   },
   "dependencies": {
@@ -31,7 +31,8 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.18.1",
     "react-query": "^3.23.2",
-    "superagent": "^6.1.0"
+    "superagent": "^6.1.0",
+    "zod": "^3.21.4"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} db/seed.ts"

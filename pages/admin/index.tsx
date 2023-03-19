@@ -15,10 +15,7 @@ const statusStyles = {
 
 function Page() {
   const router = useRouter();
-  const {
-    status,
-    data: { session },
-  } = useSession({
+  const { status, data } = useSession({
     required: true,
     onUnauthenticated() {
       router.push("/", "/", {});
