@@ -10,19 +10,19 @@ import prisma from "@db/index";
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
   secret: process.env.NEXTAUTH_SECRET,
-  session: {
-    jwt: true,
-  },
+  // session: {
+  //   jwt: true,
+  // },
   pages: {
     signIn: "/sign-in",
     // signOut: "/auth/logout",
     // error: "/auth/error", // Error code passed in query string as ?error=
   },
   providers: [
-    GitHubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    }),
+    // GitHubProvider({
+    //   clientId: process.env.GITHUB_CLIENT_ID,
+    //   clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    // }),
     CredentialsProvider({
       id: "app-login",
       name: "App Login",
@@ -156,14 +156,14 @@ export default NextAuth({
     async redirect({ url, baseUrl }) {
       return url.startsWith(baseUrl) ? url : baseUrl;
     },
-    async jwt({ token, user, account, profile, isNewUser }) {
-      if (user) {
-        token.id = user.id;
-        token.role = user.role;
-      }
+    // async jwt({ token, user, account, profile, isNewUser }) {
+    //   if (user) {
+    //     token.id = user.id;
+    //     token.role = user.role;
+    //   }
 
-      return token;
-    },
+    //   return token;
+    // },
     async session({ session, token, user }) {
       const sess: Session = {
         ...session,
